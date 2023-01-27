@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Fb ShomreyMishkal';
+    src: url('fonts/FbShomreyMishkal-Regular.eot');
+    src: url('fonts/FbShomreyMishkal-Regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/FbShomreyMishkal-Regular.woff2') format('woff2'),
+         url('fonts/FbShomreyMishkal-Regular.woff') format('woff'),
+         url('fonts/FbShomreyMishkal-Regular.ttf')  format('truetype'),
+         url('fonts/FbShomreyMishkal-Regular.svg#Fb ShomreyMishkal') format('svg');
+}
