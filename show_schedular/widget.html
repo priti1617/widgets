@@ -308,7 +308,7 @@
 		.single-show .dateDiv {
 		    padding: 4px;
 		    text-align: center;
-		    width: 100px;
+		    width: 122px;
 		    border-radius: 8px;
 		    font-size: 24px;
 		    color: #292929;
@@ -316,12 +316,19 @@
 
 		.single-show .showImage {
 		    position: relative;
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 105px;
+		    height: 176px;
 		}
 
 		.single-show img {
-		    width: auto;
+			position: absolute;
+		    top: 0;
+		    bottom: 0;
+		    margin: auto;
 		    width: 120px;
-		    height: 100%;
+		    height: auto;
 		    object-fit: cover;
 		}
 
@@ -347,7 +354,7 @@
 		    flex: 1;
 		}
 		.single-show .show_Name {
-		    font-size: 40px;
+		    font-size: 32px;
 		}
 		.single-show .show_Desc {
 		    font-size: 22px;
