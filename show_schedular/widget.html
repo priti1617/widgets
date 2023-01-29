@@ -489,11 +489,18 @@
 	}
 
 	function scrollToLiveDiv() {
-		const y = document.getElementById("liveshowRowDiv").getBoundingClientRect().top + window.scrollY;
-		window.scroll({
-		  top: y,
-		  behavior: 'smooth'
-		});;
+		if(window===window.parent){
+			const y = document.getElementById("liveshowRowDiv").getBoundingClientRect().top + window.scrollY;
+			window.scroll({
+			  top: y,
+			  behavior: 'smooth'
+			});;			
+		}
+		else {
+			document.getElementById("liveshowRowDiv").scrollIntoView({
+	            behavior: "smooth"
+	        });
+		}
 		return false;
 	}
 
