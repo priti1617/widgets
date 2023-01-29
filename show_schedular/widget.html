@@ -489,18 +489,21 @@
 	}
 
 	function scrollToLiveDiv() {
-		if(window===window.parent){
-			const y = document.getElementById("liveshowRowDiv").getBoundingClientRect().top + window.scrollY;
-			window.scroll({
-			  top: y,
-			  behavior: 'smooth'
-			});;			
-		}
-		else {
-			document.getElementById("liveshowRowDiv").scrollIntoView({
-	            behavior: "smooth"
-	        });
-		}
+		document.querySelector("#todayDate").click();
+		setTimeout(function () {
+			if(window===window.parent){
+				const y = document.getElementById("liveshowRowDiv").getBoundingClientRect().top + window.scrollY;
+				window.scroll({
+				  top: y,
+				  behavior: 'smooth'
+				});;			
+			}
+			else {
+				document.getElementById("liveshowRowDiv").scrollIntoView({
+		            behavior: "smooth"
+		        });
+			}
+		},500);
 		return false;
 	}
 
@@ -558,11 +561,14 @@
 		var sliderStr = "";
 		var showContent = "";
 		for (var i = 0; i < dates.length; i++) {
-			var activeClass = "";
-			if(i==0) activeClass="active";
+			var activeClass = "",todayAttrs="";
+			if(i==0) {
+				activeClass="active";
+				todayAttrs = "id='todayDate'";
+			}
 			sliderStr += `<li class="`+activeClass+`">
 							<div class="dayTextDiv">`+dates[i].day+`</div>
-							<a href="#dateTab`+i+`" data-toggle="tab" title="">
+							<a href="#dateTab`+i+`" data-toggle="tab" title=""  `+todayAttrs+`>
 			                     <span class="round-tabs three">
 			                        `+dates[i].date+`
 			                     </span> 
