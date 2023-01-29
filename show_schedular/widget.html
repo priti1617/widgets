@@ -377,6 +377,13 @@
 			background-color: #f6d3d3;
 		}
 </style>
+<a style="
+    background: #00A9FF;
+    position: absolute;
+    border: 0;
+    top: 115px;
+    right: 40px;" class="btn btn-primary" href="#liveshowRowDiv">עכשיו בשידור ח
+</a>
 <div id="calendarSchedule" class="shomrey"></div>
 <script type="text/javascript">
 	var url = "https://galrabino.github.io/radiosol/schedule.xlsx";
@@ -499,10 +506,11 @@
 				if(schedule[j].start=="0:00") schedule[j].start="00:00";
 				if(schedule[j].end=="0:00") schedule[j].end="00:00";
 				
-				var liveClass = "",dateStr="";
+				var liveClass = "",dateStr="", liveAttrs="";
 				if (!liveIndexMarked && liveIndex===j) {
 					liveIndexMarked = true;
 					liveClass = "live";
+					liveAttrs = "id='liveshowRowDiv'";
 					dateStr = `<a href="https://radio.streamgates.net/stream/sol" target="_blank" style="text-decoration: none;"><div class="dateDiv">
 								`+schedule[j].start+`
 								<span class="badge bg-primary" style="background-color: red;display: block;margin-top: 5px;">LIVE</span><span style="padding: 5px 0px;display: inline-block;"><i class="glyphicon glyphicon-play-circle"></i></span>
@@ -510,7 +518,7 @@
 				}
 				else dateStr = `<div class="dateDiv">`+schedule[j].start+` - `+schedule[j].end+`</div>`;
 
-				dates[i].content += `<div class="single-show `+liveClass+`">
+				dates[i].content += `<div class="single-show `+liveClass+`" `+liveAttrs+`>
 								<div class="showwrap">
 									<div class="show_date">`+dateStr+`</div>
 									<div class="showImage">
