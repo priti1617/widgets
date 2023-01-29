@@ -377,13 +377,6 @@
 			background-color: #f6d3d3;
 		}
 </style>
-<a style="
-    background: #00A9FF;
-    position: absolute;
-    border: 0;
-    top: 115px;
-    right: 40px;" class="btn btn-primary" href="#liveshowRowDiv">עכשיו בשידור ח
-</a>
 <div id="calendarSchedule" class="shomrey"></div>
 <script type="text/javascript">
 	var url = "https://galrabino.github.io/radiosol/schedule.xlsx";
@@ -495,6 +488,15 @@
 		return false;
 	}
 
+	function scrollToLiveDiv() {
+		const y = document.getElementById("liveshowRowDiv").getBoundingClientRect().top + window.scrollY;
+		window.scroll({
+		  top: y,
+		  behavior: 'smooth'
+		});;
+		return false;
+	}
+
 	function setCalHtml() {
 		for (var i = 0; i < dates.length; i++) {
 			var dayInt = dates[i].dayInt;
@@ -567,7 +569,15 @@
 		var htmlStr = `<section style="background:#efefe9;" dir="rtl">
 	        <div class="container" style="width:98%;">
 	            <div class="row">
-	                <div class="board">
+	                <div class="board" style="position:relative;">
+	                	<a style="
+						    background: #00A9FF;
+						    position: absolute;
+						    border: 0;
+						    top: 42px;
+						    right: -96px;
+						    " class="btn btn-primary" onclick="scrollToLiveDiv();">עכשיו בשידור ח
+						</a>
 	                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
 	                    <div class="board-inner">
 	                    <ul class="nav nav-tabs" id="myTab">
