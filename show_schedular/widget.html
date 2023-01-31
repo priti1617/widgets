@@ -620,7 +620,7 @@
 			}
 			else {
 				if(RequiresIframeScrollFix()){
-					window.parent.postMessage(elm.getBoundingClientRect().top, "*");
+					window.parent.postMessage(document.getElementById("liveshowRowDiv").getBoundingClientRect().top, "*");
 				}
 				else{
 					document.getElementById("liveshowRowDiv").scrollIntoView({
