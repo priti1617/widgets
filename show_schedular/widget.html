@@ -634,10 +634,6 @@
 	
 	function RequiresIframeScrollFix() {
 	    try {
-	        // Debug navigator Agent
-	        if (debugNavigator)
-	            alert(navigator.userAgent);
-
 	        // We know this issue happens inside an IFrame on;
 	        // Safari iPhone
 	        // Safari iPad
@@ -660,7 +656,6 @@
 	            return false;
 
 	    } catch (e) {
-	        alert(e.message);
 	    }
 	}
 
