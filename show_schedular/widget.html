@@ -609,8 +609,8 @@
   }
 
 	function scrollToLiveDiv() {
-		// document.querySelector("#todayDate").click();
-		// setTimeout(function () {
+		document.querySelector("#todayDate").click();
+		setTimeout(function () {
 			if(window===window.parent){
 				const y = document.getElementById("liveshowRowDiv").getBoundingClientRect().top + window.scrollY;
 				window.scroll({
@@ -619,9 +619,8 @@
 				});;			
 			}
 			else {
-				var browser = fnBrowserDetect();
-				if(browser=="safari"){
-					document.getElementById("liveshowRowDiv").scrollIntoView();
+				if(RequiresIframeScrollFix()){
+					window.parent.postMessage(elm.getBoundingClientRect().top, "*");
 				}
 				else{
 					document.getElementById("liveshowRowDiv").scrollIntoView({
@@ -629,8 +628,49 @@
 			        });					
 				}
 			}
-		// },500);
+		},500);
 		return false;
+	}
+	
+	function RequiresIframeScrollFix() {
+	    try {
+	        // Debug navigator Agent
+	        if (debugNavigator)
+	            alert(navigator.userAgent);
+
+	        // We know this issue happens inside an IFrame on;
+	        // Safari iPhone
+	        // Safari iPad
+	        // Safari Desktop Works fine.
+
+	        // Check for safari
+	        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+	        // Chrome has Safari in the user agent so we need to filter (https://stackoverflow.com/a/7768006/1502448)
+	        var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+	        if ((is_chrome) && (is_safari)) { is_safari = false; }
+
+	        // If we need to narrow this down even further we can use a more robust browser detection (https://stackoverflow.com/questions/5916900)
+	        // Problematic browsers can be adjusted here.
+	        if (is_safari && inIframe() && (
+	                navigator.userAgent.match(/iPad/i) ||
+	                navigator.userAgent.match(/iPhone/i)
+	                ))
+	            return true;
+	        else
+	            return false;
+
+	    } catch (e) {
+	        alert(e.message);
+	    }
+	}
+
+	// (https://stackoverflow.com/questions/326069/)
+	function inIframe() {
+	    try {
+	        return window.self !== window.top;
+	    } catch (e) {
+	        return true;
+	    }
 	}
 
 	function setCalHtml() {
