@@ -1,4 +1,5 @@
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
@@ -238,17 +239,17 @@
 			}
 		    span.round-tabs {
 		        font-size:16px;
-				width: 48px;
-				height: 48px;
-				line-height: 48px;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
 			}
 			.tab-content .head{
 		        font-size:20px;
 			}
 			.nav-tabs > li a {
-				width: 48px;
-				height: 48px;
-				line-height:48px;
+				width: 30px;
+				height: 30px;
+				line-height:30px;
 			}
 
 			.nav-tabs > li.active:after {
@@ -375,6 +376,102 @@
 		}
 		.single-show.live .show_date a:hover .dateDiv {
 			background-color: #f6d3d3;
+		}
+		.floatbtn {
+			background: #00A9FF;
+		    position: absolute;
+		    border: 0;
+		    top: 42px;
+		    right: -120px;
+		}
+		.floatbtn_span2{
+			display: inline-block;padding-right: 5px;font-size: 18px;vertical-align: middle;
+		}
+
+		@media only screen and (min-width: 601px) {
+			.single-show .mobile {
+				display: none;
+			}
+		}
+
+		@media only screen and (max-width: 600px) {
+			.container{
+				width: 100% !important;
+				    padding-right: 0px; 
+    				padding-left: 0px;
+			}
+			.row {
+			    margin-right: 0px;
+			    margin-left: 0px;
+			}
+			.board{
+			    width: 100%;
+			    margin: 30px auto;
+
+			}
+		  .board .nav-tabs {
+		    margin:0;
+		    padding:0;
+		  }
+		  .dayTextDiv {
+		  	font-size: 14px;
+		  }
+		  span.round-tabs{
+		    width: 30px;
+		    height: 30px;
+		    line-height: 30px;
+		  }
+		  .nav-tabs > li a{
+			   width: 30px;
+			   height: 30px;
+			}
+			.single-show img{
+				width: 75px;
+			}
+			.single-show .showImage{
+				width: 84px;
+				height: auto;
+			}
+			.single-show .contentDiv {
+			    height: auto;
+			    padding: 0px;
+			}
+			.single-show .dateDiv {
+		        width: 88px;
+			    font-size: 17px;
+			    margin-left: 5px;
+			}
+			.single-show .show_date{
+				margin-left: 0px;
+			}
+			.single-show .showContent{
+				padding: 0;
+			}
+			.single-show .show_Name{
+				font-size: 20px;
+			}
+			.single-show .show_Desc{
+				font-size: 14px;
+			}
+			.single-show .show_Announcer{
+				font-size: 14px;
+			}
+			.single-show .desktop {
+				display: none;
+			}
+			.single-show .showwrap{
+				padding: 8px;
+			}
+			.floatbtn {
+				top: 98px;
+			    right: 0px;
+			    font-size: 12px;
+			    padding: 3px 6px;
+			}
+			.floatbtn_span2{
+				padding-right: 4px;
+				font-size: 14px;
+			}
 		}
 </style>
 <div id="calendarSchedule" class="shomrey"></div>
@@ -548,8 +645,11 @@
 												</div>`):``	
 												)+`												
 											</div>
+											<a href="`+schedule[j].show_link+`" target="_blank" class="btn btn-default mobile">
+												<span class="text">מעבר לדף התכנית</span>
+											</a>
 										</div>
-										<a href="`+schedule[j].show_link+`" target="_blank" class="btn btn-default">
+										<a href="`+schedule[j].show_link+`" target="_blank" class="btn btn-default desktop">
 											<span class="text">מעבר לדף התכנית</span>
 										</a>
 									</div>
@@ -583,14 +683,8 @@
 	        <div class="container" style="width:98%;">
 	            <div class="row">
 	                <div class="board" style="position:relative;">
-	                	<a style="
-						    background: #00A9FF;
-						    position: absolute;
-						    border: 0;
-						    top: 42px;
-						    right: -120px;
-						    " class="btn btn-primary" onclick="scrollToLiveDiv();">
-						    	<span style="vertical-align: middle;">עכשיו בשידור חי</span><span style="display: inline-block;padding-right: 5px;font-size: 18px;vertical-align: middle;"><i class="glyphicon glyphicon-play-circle"></i>
+	                	<a class="btn btn-primary floatbtn" onclick="scrollToLiveDiv();">
+						    	<span style="vertical-align: middle;">עכשיו בשידור חי</span><span class="floatbtn_span2"><i class="glyphicon glyphicon-play-circle"></i>
 						    	</span> 
 						    </a>
 	                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
