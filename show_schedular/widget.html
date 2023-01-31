@@ -572,6 +572,7 @@
 					var m_start = parseInt(schedule[i].start.split(":")[1]);
 					var h_end = parseInt(schedule[i].end.split(":")[0]);
 					var m_end = parseInt(schedule[i].end.split(":")[1]);
+					if(h_end==0) h_end=24;
 
 					if(h_start<=hour && hour<h_end && m_start<=minute){
 						return i;
