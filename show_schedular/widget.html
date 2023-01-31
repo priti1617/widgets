@@ -609,8 +609,8 @@
   }
 
 	function scrollToLiveDiv() {
-		document.querySelector("#todayDate").click();
-		setTimeout(function () {
+		// document.querySelector("#todayDate").click();
+		// setTimeout(function () {
 			if(window===window.parent){
 				const y = document.getElementById("liveshowRowDiv").getBoundingClientRect().top + window.scrollY;
 				window.scroll({
@@ -629,7 +629,7 @@
 			        });					
 				}
 			}
-		},500);
+		// },500);
 		return false;
 	}
 
